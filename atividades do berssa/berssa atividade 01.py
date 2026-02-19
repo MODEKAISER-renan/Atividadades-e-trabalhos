@@ -42,30 +42,31 @@ def vx(opcoes): # sistema de verificação expecifico numerico
 def verificaoN(msg):#sistema de verificação abrangente numerico
        global saida
        cont = 1
-       while cont == 1:
-                try:
+       while cont == 1:#laço de reétição 
+                try:#tenta receber um valor numerico do usuario
                        saida = int(input(msg))
-                except:
+                except:#em caso de erro manda a mensagem de erro e volta o laço de repetição
                        print("Digite um número:")
-                else:
+                else:#caso não tenha erro nenhum ele ira dizer que teve uma opção valida e ira retornar o valor de entrada
                        cont = 0
                        print("Opção valdia")
                        return saida
 #código realmente funcionando
-while cont == 1:
-        msg = [" o que quer fazer? ","somar[1]","subtrair[2]","multiplicação[3]","Divisão[4]","nenhuma das opções(terminar o código)[5]"]
-        msgs(msg)
-        opcoes = (1,2,3,4,5)
-        vx(opcoes)
-        if ax == 5:
+while cont == 1:#laço principal de repetição(coração do código)
+        msg = [" o que quer fazer? ","somar[1]","subtrair[2]","multiplicação[3]","Divisão[4]","nenhuma das opções(terminar o código)[5]"]#msg que irão ser enviadar ao usuario
+        msgs(msg)#ação de chamar a funão msg que envia as msg para o usuario
+        opcoes = (1,2,3,4,5)#as opções que deverão ser testadas pela função"vx(opcoes)
+        vx(opcoes)#chamando a função opcoes
+        if ax == 5:#caso o valor que veio da função vc(opcoes), irá encerrar o código
                 cont = 0
                 break
-        msg = "digite o valor 1:"
-        verificaoN(msg)
-        valor = saida
-        msg = "digite o valor 2:"
-        verificaoN(msg)
-        valor2 = saida
+        msg = "digite o valor 1:"#msg que devera ir ao usuario
+        verificaoN(msg)#função qe manda a msg para o usuario e retorna um valor do usuario
+        valor = saida # valor que voltou do usuario snedo reorganizado 
+        msg = "digite o valor 2:"#msg que deve ir ao usuario
+        verificaoN(msg)#função qe manda a msg para o usuario e retorna um valor do usuario
+        valor2 = saida # valor que voltou do usuario snedo reorganizado
+        #os casos de teste para veirifcar e chamar a opração de acorodo com a escolha do usuario
         if ax == 1:
                 soma(valor,valor2)
         if ax == 2:
@@ -74,4 +75,5 @@ while cont == 1:
                 multiplicacao(valor,valor2)
         if ax == 4:
                 divisao(valor,valor2)
+#msg final do código
 print("Agradeço por usar esse código")
