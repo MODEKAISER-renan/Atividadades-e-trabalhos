@@ -7,19 +7,19 @@ ax = 0
 msg = ()
 opcoes = ()
 #funções de operação e verificação
-def soma(valor,valor2):
+def soma(valor,valor2):# soma os dois valores e depois os mostra na tela
         print("o resultado da operação é = ",valor + valor2)
-def subtração(valor,valor2):
+def subtração(valor,valor2):#diminui dois valores e após mostra na tela
         print("o resultado da operação é = ",valor - valor2)
-def multiplicacao(valor,valor2):
+def multiplicacao(valor,valor2):#multiplca dois valores e após mpstra na tela
         print("o resultado da operação é = ",valor * valor2)
-def divisao(valor,valor2):
+def divisao(valor,valor2):# tenta dividir dois valroes, caso de certo mostra o resultado da divisão na tela, caso de errado fala que não é possivel dividir por 0 (já que é a unica divisão numerica que pode dar erro de divisão)
         try:
                print("o resultado da operação é = ",valor / valor2)
         except:
                print("não é posivel dividir por zero")
 
-def msgs(msg):
+def msgs(msg):# apóes receber as msg pela variavel "msg" mostra todas as msg em sequencia
         cont2 = 0
         for i in (msg):
                 print(f"*{msg[cont2]}*\n")
@@ -27,12 +27,12 @@ def msgs(msg):
 def vx(opcoes): # sistema de verificação expecifico numerico
         global ax
         cont = 1
-        while cont == 1:
-                try:
+        while cont == 1:# laço de repetição usado para fazer a verificação quantas vezes for necessario
+                try:#tenta execuatr o código para receber o numero do teclado.
                         ax = int(input("digite a sua opção: "))
-                except:
+                except:#em caso de erro manda uma msg para o usuario faladno que a entrada é invalida(no caso não é um numeral)
                         print("digite um numero:")
-                else:
+                else:#caso de certo ele ira verificar dentro de opções se o numero que foi digitado tem entre as opçoes, caso aja, ele ira quebrar o laço de repetição e retornar o valoro de entrada, caso não, dira que a entrada é invalida e forçara o usiario digitar uma entrada valida
                         if ax in opcoes:
                                 cont = 0
                                 print("Opção valida")
