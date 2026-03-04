@@ -99,6 +99,8 @@ for livro in catalogo:
     if livro['disponivel']:
         disponivel_cont += 1
         print(f'sim{livro['titulo']}')
+
+        
 print('\n===Buscar por titulo===')
 buscar = input("digite o titulo (ou parte):").lower()
 encontrado = False
@@ -108,6 +110,8 @@ for livro in catalogo:
         encontrado = True
 if not encontrado:
     print(' Nenhum livro encontrado com esse termo.')
+
+
 print('\n===Atributos do primeiro livro===')
 for chave,valor in catalogo[0].items():
     print(f'{chave}:{valor}')
