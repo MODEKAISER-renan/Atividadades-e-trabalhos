@@ -99,3 +99,4 @@ while True:
         break  
 #verdadeira menssagem final.
 print("Agradeço por usar este código")
+#sem IA nesete código
