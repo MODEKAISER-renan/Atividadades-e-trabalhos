@@ -53,9 +53,9 @@ def Pega_negao():
         if autor in catalogo["autor"].lower():
             print(f"Autor: {catalogo["autor"]} Titulo: {catalogo["titulo"]} Ano: {catalogo["ano"]} Estatus: {catalogo["disponivel"]}")
             verificacao = True
-        if not verificacao:
-            print("Autor não escontrado, tente novamente")
-            Pega_negao()
+    if not verificacao:
+        print("Autor não escontrado, tente novamente")
+        Pega_negao()
 # Faz que um livro seja emprestado, em resumo, deixa o livro como indisponivel ou dispnivl dependendo do estado atual do livro
 def Empresta_negao():
     autor = input("Digite o nome do Autor: ").lower()
@@ -64,8 +64,7 @@ def Empresta_negao():
     for catalogo in biblioteca:
         if autor in catalogo["autor"].lower() and titulo in catalogo["titulo"].lower():
             catalogo["disponivel"] = not catalogo["disponivel"]
-            varificacap = True
-            return
+            verificacao = True
     if verificacao != True:
         print("Livro não encontrado, tente novamente")
         Empresta_negao()
