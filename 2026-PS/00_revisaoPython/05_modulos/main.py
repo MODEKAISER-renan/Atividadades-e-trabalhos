@@ -5,31 +5,44 @@ diciplina : Programação de Sistemas {PS}
 aula : D7 - Revisão: Modulos
 Autor : Renan Soares da Silva
 data: 05.03.2026
-repositorio: https://github.com/codespaces?repository_id=1161897302
+repositorio: https://github.com/MODEKAISER-renan/Atividadades-e-trabalhos
 '''
 
-# bloco1 : STDBIB
-import math
-from random import randint,choice
-from datetime import datetime
+from conversores import(
+    celsius_para_fahrenheit,celsius_para_kelvin,fahrenheit_para_celsius,
+    km_para_milhas,milhas_para_km,metros_para_pes
+)
 
-from conversores import temperatura
+from utils import cabecalho_secao,formatar_resultado,linha_separadores
 
-from conversores import km_para_milhas, celsius_para_fahrenheit
+def menu_temperatura():
+    print(cabecalho_secao("Conversão de Temperatura"))
+    valor = float(input("Valor em C"))
+    print(formatar_resultado("C - F", valor, "C", celsius_para_fahrenheit(valor), "F"))
+    print(formatar_resultado("C - K", valor, "C", celsius_para_kelvin(valor), "K"))
 
-print("Exploradores a Stdlib")
-print(f"n = {math.pi:.4f}")
-print(f"(raiz²)2 = {math.sqrt(2):.4f}")
-print(f"Búmero aleatorio: {randint(1,100)}")
-print(f"Unidde sorteada: {choice(["km","milhas","metros"])}")
-print(f"Agora: {datetime.now().strftime("%d/%m/%Y %H:%M")}")
+def menu_distancia():
+    print(cabecalho_secao("Conversão de Distância"))
+    valor = float(input("Valor em km"))
+    print(formatar_resultado("km - mi", valor, "km", km_para_milhas(valor), "mi"))
+    print(formatar_resultado("Km - pés", valor * 1000, "m", metros_para_pes(valor * 1000), "pés"))
 
-print("\n === conversão de Temperatura")
-valor = 100.0
-print(f"{valor}*C = {temperatura.celsius_para_fahrenheit(valor):.1f}*F")
-print(f"{valor}*C = {temperatura.celsius_para_kelvin(valor)} K")
-print(f"Zero absoluto: {temperatura.ZERO_ABSOLUTO_CELSIUS}*C")
+def main():
+    print(linha_separadores())
+    print("SISTEMA DE CONVERSÃO DE UNIDADES")
+    print(linha_separadores())
 
-print("\n === API Limpo ===")
-print(f"100 km = {km_para_milhas(100):.2f}milhas")
-print(f"25 C = {celsius_para_fahrenheit(25):.1f} F")
+    opcoes = {"1":menu_temperatura,"2":menu_distancia}
+
+    while True:
+        print("\n[1] Temperatura [2] Distancia [0] Sair")
+        escolha = input("Opção:").strip()
+        if escolha == "0":
+            print("\nSistema encerrado.")
+            break
+        elif escolha in opcoes:
+            opcoes[escolha]()
+        else:
+            print(" Opção invalida.")
+if __name__ == "__main__":
+    main()

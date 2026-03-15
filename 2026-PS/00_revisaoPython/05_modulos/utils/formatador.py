@@ -1,4 +1,9 @@
 def linha_separadores(char = "", largura=40):
     return char * largura
 
-def formatar_resultados(origem,valor_original,unidade_origem,valor_convertido,unidade_destino):
+def formatar_resultado(origem,valor_original,unidade_origem,valor_convertido,unidade_destino):
+    return f"{origem} : {valor_original:.2f} {unidade_origem} {valor_convertido:.4f} {unidade_destino}"
+
+def cabecalho_secao(titulo):
+    sep = linha_separadores("-",len(titulo) + 4)
+    return f"\n{sep}\n {titulo}\n{sep}"
