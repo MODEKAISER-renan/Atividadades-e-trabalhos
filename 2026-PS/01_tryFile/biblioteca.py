@@ -5,7 +5,6 @@ professor: Berssa
 data: 28.03.2026
 '''
 
-ARQUIVO   = "biblioteca.txt"
 SEPARADOR = "|"  
 
 catalogo = [
@@ -95,10 +94,9 @@ def devolver_livro(catalogo):
         print("  Número fora da lista. Verifique os livros cadastrados.")
 
 def carregar_catalogo():
-    """Lê o .txt e reconstrói a lista de dicionários."""
     catalogo = []
     try:
-        with open(ARQUIVO, "r", encoding="utf-8") as f:
+        with open("2026-PS/01_tryFile/biblioteca.txt", "r", encoding="utf-8") as f:
             for linha in f:
                 linha = linha.strip()
                 if not linha:         
@@ -119,11 +117,11 @@ def carregar_catalogo():
 
 def salvar_catalogo(catalogo):
     try:
-        with open(ARQUIVO, "w", encoding="utf-8") as f:
+        with open("2026-PS/01_tryFile/biblioteca.txt", "w", encoding="utf-8") as f:
             for livro in catalogo:
                 linha = f"{livro['titulo']}{SEPARADOR}{livro['autor']}{SEPARADOR}{livro['disponivel']}\n"
                 f.write(linha)
-        print(f" Catálogo salvo em '{ARQUIVO}'.")
+        print(f" Catálogo salvo em 'biblioteca.txt'.")
     except IOError as e:
         print(f" Erro ao salvar: {e}")
 
@@ -132,7 +130,7 @@ def menu():
     catalogo = carregar_catalogo()
     total = len(catalogo)
     print(f"\n====SISTEMA DE BIBLIOTECA====")
-    print(f"{total} livro(s) carregado(s) de '{ARQUIVO}'.")
+    print(f"{total} livro(s) carregado(s) de 'biblioteca.txt'.")
 
     opcoes = {
         "1": ("Listar livros",        listar_livros),

@@ -1,0 +1,20 @@
+2026-03-29 01:00:51.190940 - Produto cadastrado: banana
+2026-03-29 01:04:02.302179 - Produtos listados
+2026-03-29 01:04:55.261720 - Produto removido: banana
+2026-03-29 01:05:16.348523 - Produtos listados
+2026-03-29 01:06:35.172901 - Produto removido: banana
+2026-03-29 01:07:43.755054 - Produto cadastrado: arroz
+2026-03-29 01:07:53.991578 - Produtos listados
+2026-03-29 01:08:56.797649 - Produto cadastrado: banana
+2026-03-29 01:10:08.097857 - Produto cadastrado: arroz integral
+2026-03-29 01:10:30.413235 - Produto cadastrado: macarão branco
+2026-03-29 01:16:11.973596 - Produtos listados
+2026-03-29 01:16:16.754717 - Produtos listados
+2026-03-29 01:24:06.318539 - Produto cadastrado: banana
+2026-03-29 01:24:24.393993 - Produto atualizado: banana
+2026-03-29 01:25:08.827647 - Produtos listados
+2026-03-29 01:25:25.618489 - Produto cadastrado: macarrão
+2026-03-29 01:29:24.483866 - Produto cadastrado: fruta do conde
+2026-03-29 01:29:28.268377 - Produtos listados
+2026-03-29 01:31:13.183431 - Produto cadastrado: banana
+2026-03-29 01:31:30.566311 - Produtos listados
