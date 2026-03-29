@@ -6,7 +6,7 @@ Aula: Aula 12 e 13: Mini-projeto Integrador de Lógica e Paradigma Estruturado -
 
 Integrantes: Renan Soares da Silva, Ana Vitoria Schactae Brandao, João Pedro
 
-Descrição: É um Sistema de armanezamento de dados simples onde ele guarda as informações que recebe em dados.txt e marca o horario de cada ação em historico.txt, esse sistema guardas as infromções  da seguinte forma "Nome,quantidada,preco" e da a disponibilidade de adicionar um valor, modificar ou retirar ele, além de ter um sistema de busca e salvalemto automatico toda vez que o código é finalizado da forma correta (selecionar a opção para sair).
+Descrição: É um Sistema de armanezamento de dados simples para um pequeno comercio onde ele guarda as informações que recebe em dados.txt e marca o horario de cada ação em historico.txt, esse sistema guardas as infromções  da seguinte forma "Nome,quantidada,preco" e da a disponibilidade de adicionar um valor, modificar ou retirar ele, além de ter um sistema de busca e salvalemto automatico toda vez que o código é finalizado da forma correta (selecionar a opção para sair).
 
 '''
 #MÓDULOS:
