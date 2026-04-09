@@ -1,0 +1,2 @@
+Herry Poter;7;19.99;Livro
+Disco da Xuxa;100;19.09;CD

@@ -43,9 +43,9 @@ def carregar_dados(): # Função de carregamento
     except FileNotFoundError:
         print("Arquivo não encontrado, criando novo arquivo.")
 
-def registrar_historico(texto): # Função que registra histórico
-    with open("2026-PS/02_mineProjeto/historico.txt", "a", encoding="utf-8" ) as arquivo: #utilizando o modo append para adicionar ao final do arquivo txt histórico
-        arquivo.write(f"{datetime.now()} - {texto}\n") # é preenchido a data em que cada operação é efetuada no sistema
+def registrar_historico(texto): 
+    with open("2026-PS/02_mineProjeto/historico.txt", "a", encoding="utf-8" ) as arquivo:
+        arquivo.write(f"{datetime.now()} - {texto}\n") 
         
 
 
