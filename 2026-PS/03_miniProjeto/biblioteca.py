@@ -10,26 +10,87 @@ Descrição: É um Sistema de armanezamento de dados simples para um pequeno Seb
 
 '''
 
-""" -- 1 TIPOS DE DADOS E VARIÁVEIS -- USE PELO MENOS TRÊS TIPOS DISTINTOS(STRING, INT, FLOAT OU BOOL) COM NOMES DE VARIÁVEIS SIGNIFICATIVOS E CONTEXTUALMENTE ADEQUADOS AO PROBLEMA
-linha 61 - variável opção tipo float(ponto flutuante) 
+""" -- 1 TIPOS DE DADOS E VARIÁVEIS --
+Uso de pelo menos três tipos distintos (string, int, float ou bool) com nomes de variáveis significativos e adequados ao problema
+
 linha 77 - variável nome tipo string (texto)
 linha 154 - variável quantidade tipo int (números inteiros)
+linha 155 - variável preco tipo float (número com casas decimais)
+linha 148 - variável verificacao usada como controle (tipo string, funciona tipo um "achou ou não")
 """
-""" -- 2 OPERADORES --: OPERADORES ARITMÉTICOS, RELACIONAIS E LÓGICOS PRESENTES EM CONTEXTO FUNCIONAL (NÃO APENAS DECLARADOS)
-linha 161 -  operador aritmético (subtração de preço do produto - 10)
-linha 54 - operador relacional (se o valor for maior que 0)
-linha 51 - operador lógico (enquanto o argumento for verdade)
+
+""" -- 2 OPERADORES --
+Operadores aritméticos, relacionais e lógicos presentes em funcionamento
+
+linha 161 - operador aritmético (preço - 10 e preço + 10 para criar intervalo)
+linha 54 - operador relacional (valor > 0)
+linha 51 - operador lógico (while True, continua enquanto for verdadeiro)
+linha 160 - operadores juntos (>= e <= com and para verificar faixa de preço)
 """
-""" -- 3 ESTRUTURAS DE DECISÃO - APONTE UM BLOCO  if/elif/else E EXPLIQUE QUAL FLUXO ELE CONTROLA
-linha 149 até 172 - controla o fluxo de buscas de itens
+
+""" -- 3 ESTRUTURAS DE DECISÃO --
+Uso de if/elif/else para controlar o fluxo do programa
+
+linha 149 até 172 - controla o tipo de busca (nome, quantidade ou valor)
+linha 222 até 241 - controla o menu, dependendo da opção escolhida pelo usuário
 """
-""" -- 4 ESTRUTURAS DE REPETIÇÃO --- APONTE O LOOP DO MENU E/OU ITERAÇAO SOBRE DADOS; EXPLIQUE QUANDO USOU WHILE E QUANDO USOU FOR E POR QUE
+
+""" -- 4 ESTRUTURAS DE REPETIÇÃO ---
+Uso de while e for
+
+while:
+linha 204 - loop do menu (fica rodando até o usuário sair)
+linha 146 - loop da busca (permite fazer várias buscas)
+
+for:
+linha 15 - percorre os itens para salvar no arquivo
+linha 24 - percorre o arquivo para carregar os dados
+linha 95 - percorre a lista para mostrar os produtos
+linha 108, 121, 151 - percorre a lista para remover, atualizar e buscar
+
+while foi usado para repetir o sistema
+for foi usado para percorrer listas e arquivos
 """
-""" -- 5 FUNÇOES -- LISTE AS FUNÇÕES IMPLEMENTADAS E EXPLIQUE A RESPONSABILIDADE DISTINTA DE CADA UMA
-linha 29 - salvar_dados é responsável por armazenar no arquivo dados.txt os dados (nome, quantidade, preço e categoria) 
-os itens cadastrados
-linha 42 - carregar_dados é responsável por transmitir a mensagem de carregamento no início do programa 
-linha 68 - verificacao_numerica """ 
+
+""" -- 5 FUNÇOES --
+Funções criadas e o que cada uma faz
+
+linha 13 - salvar_dados: salva os dados no arquivo dados.txt
+linha 20 - carregar_dados: carrega os dados do arquivo
+linha 30 - registrar_historico: salva as ações com data e hora
+linha 34 - verificacao_numerica: verifica se o valor digitado é válido
+
+linha 62 - Cadastrar_item: cadastra novos produtos
+linha 90 - Listar_item: mostra os produtos
+linha 95 - Remover_item: remove um produto
+linha 106 - Atualizar_item: atualiza quantidade ou preço
+linha 125 - estatiticas_do_sistema: mostra dados gerais
+linha 134 - busca: faz busca de produtos
+linha 200 - menu: controla o sistema inteiro
+
+cada função tem sua responsabilidade separada
+"""
+
+""" -- 6 try/except --
+Usado para evitar erros no programa
+
+linha 21 - erro ao abrir arquivo
+linha 52 - erro ao digitar número
+linha 82 - erro na conversão de quantidade/preço
+linha 214 - erro ao escolher opção do menu
+
+isso evita que o programa quebre
+"""
+
+""" -- 7 ARQUIVOS --
+Uso de arquivo .txt para salvar dados
+
+linha 13 - salva os dados no arquivo
+linha 20 - carrega os dados do arquivo
+linha 30 - salva histórico das ações
+
+o sistema salva quando fecha, assim os dados não são perdidos
+"""
 
 from datetime import datetime
 import time
