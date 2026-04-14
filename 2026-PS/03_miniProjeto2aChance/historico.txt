@@ -2,3 +2,4 @@
 2026-04-09 14:27:16.553169 - Produtos listados
 2026-04-09 14:27:47.586279 - Produto atualizado: Herry Poter
 2026-04-09 14:27:49.738492 - Produtos listados
+2026-04-14 13:44:19.662420 - Produto cadastrado: Metamorfose Ambulante

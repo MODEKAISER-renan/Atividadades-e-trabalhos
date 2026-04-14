@@ -98,27 +98,29 @@ import time
 Lista_de_itens = []
 
 def salvar_dados():
-    with open("2026-PS/03_miniProjeto/dados.txt", "w", encoding="utf-8") as f:
+    with open("2026-PS/03_miniProjeto2aChance/dados.txt", "w", encoding="utf-8") as f:
         for p in Lista_de_itens:
             linha = f"{p['nome']};{p['quantidade']};{p['preco']};{p['categoria']}\n"
             f.write(linha)
 
 def carregar_dados():
     try:
-        with open("2026-PS/03_miniProjeto/dados.txt", "r") as f: 
+        with open("2026-PS/03_miniProjeto2aChance/dados.txt", "r", encoding="utf-8") as f: 
             for linha in f:
-                nome,quantidade, preco,categoria = linha.strip().split(";")
-                Lista_de_itens.append({
-                    "nome": nome,
-                    "quantidade": int(quantidade),
-                    "preco": float(preco),
-                    "categoria":categoria
-                })
+                partes = linha.strip().split(";")
+                if len(partes) == 4:
+                    nome, quantidade, preco, categoria = partes
+                    Lista_de_itens.append({
+                        "nome": nome,
+                        "quantidade": int(quantidade),
+                        "preco": float(preco),
+                        "categoria": categoria
+                    })
     except FileNotFoundError:
           print("Arquivo não encontrado, criando novo arquivo.")
     
 def registrar_historico(texto): 
-    with open("2026-PS/02_mineProjeto/historico.txt", "a", encoding="utf-8" ) as arquivo:
+    with open("2026-PS/03_miniProjeto2aChance/historico.txt", "a", encoding="utf-8" ) as arquivo:
         arquivo.write(f"{datetime.now()} - {texto}\n")
 
 def verificacao_numerica(nome="valor",opcoes = [],lista_de_opçoes = ''):
@@ -142,15 +144,12 @@ def verificacao_numerica(nome="valor",opcoes = [],lista_de_opçoes = ''):
                 for categoria in opcoes:
                     if opcao.lower() in categoria.lower():
                         return opcao
-                    else:
-                        mgs = "Opção invalida"
-                print(mgs)
-                
+                print("Opção invalida")
             except Exception as e:
                 print(f"Erro inesperado {e}")
 
 def Cadastrar_item():
-    categoria = verificacao_numerica(opcoes=["CD","Jogos","Livros"],lista_de_opçoes="Escolha a categoria.\n[1]CD\n[2]Livro\n[3]Jogos\n")
+    categoria = verificacao_numerica(opcoes=["CD","Jogos","Livros"],lista_de_opçoes="Escolha a categoria.\nCD\nLivro\nJogos\n")
     nome = input("Digite o nome do produto: ")
     for produto in Lista_de_itens:
         if nome.lower() in produto["nome"].lower():
@@ -186,6 +185,7 @@ def Remover_item():
             break
     else:
         print("Produto não encontrado.")
+
 def Atualizar_item():
     item = input("Digite o nome do produto que quer atualizar: ").lower()
     for produto in Lista_de_itens:
@@ -205,19 +205,18 @@ def Atualizar_item():
         print("Valor não encontrado.")
 
 def estatiticas_do_sistema():
-    estatiticas_do_sistema_lista = {"itens_distintos":0,"total_de_itens":0,"valor_total":0}
+    estatiticas = {"itens_distintos":0,"total_de_itens":0,"valor_total":0}
     for produto in Lista_de_itens:
-        estatiticas_do_sistema_lista["itens_distintos"] += 1
-        estatiticas_do_sistema_lista["total_de_itens"] += produto["quantidade"]
-        estatiticas_do_sistema_lista["valor_total"] += produto["preco"]*produto["quantidade"]
-    print(f"Quantidade de itens diferentes: {estatiticas_do_sistema_lista['itens_distintos']}\nTotal de itens: {estatiticas_do_sistema_lista['total_de_itens']}\nValor total de todos os itens: {estatiticas_do_sistema_lista['valor_total']:.2f}")
+        estatiticas["itens_distintos"] += 1
+        estatiticas["total_de_itens"] += produto["quantidade"]
+        estatiticas["valor_total"] += produto["preco"]*produto["quantidade"]
+    print(f"Quantidade de itens diferentes: {estatiticas['itens_distintos']}\nTotal de itens: {estatiticas['total_de_itens']}\nValor total de todos os itens: {estatiticas['valor_total']:.2f}")
 
 def busca():
     while True:
         verificacao = "n"
-
         print("\n=== BUSCA DE ITENS ===")
-        print("[1] Buscar por nome (podendo ser parte do nome, fazendo todos os item com essa parte do nome aparecer).")
+        print("[1] Buscar por nome")
         print("[2] Buscar por quantidade de itens.")
         print("[3] Buscar por valor aproximado.")
         print("[4] Finalizar busca.\n")
@@ -253,29 +252,22 @@ def busca():
             print("\nBusca feita com sucesso!\n")
             registrar_historico("Busca realizada")
 
-def menu(): # diz oque o codigo faz
-    while True: # loop
+def menu():
+    while True:
         print("\n📋 MENU")
-        time.sleep(0.5) # biblioteca time para dar uma pausa entre as prints
+        time.sleep(0.5)
         print("1 - Cadastrar item")
-        time.sleep(0.5)
         print("2 - Listar itens")
-        time.sleep(0.5)
         print("3 - Atualizar quantidade")
-        time.sleep(0.5)
         print("4 - Remover item")
-        time.sleep(0.5)
         print("5 - Buscar por item")
-        time.sleep(0.5)
         print("0 - Sair")
-        time.sleep(0.5)
         try:
             opcao = int(input("Escolha uma opção: "))
-            time.sleep(0.5)
         except ValueError:
             print("Entrada inválida! Digite um número.")
-            time.sleep(0.5)
             continue
+        
         if opcao == 1:
             Cadastrar_item()
         elif opcao == 2:

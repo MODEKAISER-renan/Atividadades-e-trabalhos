@@ -40,3 +40,11 @@
 2026-04-09 23:43:00.170983 - Busca realizada
 2026-04-09 23:43:18.561396 - Busca sem resultado
 2026-04-09 23:44:48.033364 - Busca sem resultado
+2026-04-14 13:33:11.704801 - Produto cadastrado: ABC
+2026-04-14 13:33:20.807550 - Produtos listados
+2026-04-14 13:34:04.523668 - Produto atualizado: ABC
+2026-04-14 13:34:14.485541 - Produtos listados
+2026-04-14 13:34:23.763584 - Produto removido: ABC
+2026-04-14 13:34:30.386459 - Produtos listados
+2026-04-14 13:37:04.861949 - Busca sem resultado
+2026-04-14 13:37:46.861933 - Produto cadastrado: A Volta ao Mundo em 80 Dias
