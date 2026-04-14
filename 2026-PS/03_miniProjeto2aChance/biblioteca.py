@@ -284,7 +284,7 @@ def menu():
             for i in range(3, 0, -1):
                 print(f"O programa fechara em: {i} ", end="\r")
                 time.sleep(0.5)
-            print("Fechando agora!\nObrigado por usar...")
+            print("Fechando agora!")
             break
         else:
             print("Opção inválida!")
