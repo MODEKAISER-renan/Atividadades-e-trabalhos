@@ -6,3 +6,14 @@
 2026-04-14 13:46:08.811638 - Produto cadastrado: A Hora da Estrela
 2026-04-14 13:46:11.797656 - Produtos listados
 2026-04-14 13:46:27.418842 - Produto atualizado: A Hora da Estrela
+2026-04-14 13:55:38.049004 - Produtos listados
+2026-04-14 13:55:52.159963 - Busca realizada
+2026-04-14 14:54:37.103693 - Produto cadastrado: ABC
+2026-04-14 14:54:47.624180 - Produtos listados
+2026-04-14 14:55:13.822742 - Produto atualizado: ABC
+2026-04-14 14:55:19.062407 - Produtos listados
+2026-04-14 14:56:10.406535 - Busca realizada
+2026-04-14 14:56:28.326751 - Produto cadastrado: abcd
+2026-04-14 14:58:06.726348 - Produto cadastrado: A Hora da Estrela
+2026-04-14 14:58:26.950741 - Busca realizada
+2026-04-15 13:28:53.419351 - Produtos listados
