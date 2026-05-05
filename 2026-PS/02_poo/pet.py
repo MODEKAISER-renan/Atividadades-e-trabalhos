@@ -47,15 +47,15 @@ class Pet:
     
     def verificar_vacinacao(self):
         if self.vacinado != 's':
-            print("Atenção: vacinação pendente.")
+            return "Atenção: vacinação pendente."
         else:
-            print("Vacinação em dia.")
+            return "Vacinação em dia."
     
     def atualzar_peso(self, novo_peso):
         self.peso = novo_peso
     
     def emitir_resumo(self):
-        msg = f"\nNome do pet: {self.nome}\nEspécie: {self.especie}\nIdade: {self.idade}\nNome do dono: {self.nome_do_dono}\nPeso; {self.peso}\nEstatus da vacinação: {self.verificar_vacinacao}\nEstatus de hospedagem: {"está hospedado" if self.hospedado else "não hospedado"}\nValor da diaria: R${self.calcular_diaria}."
+        msg = f"\nNome do pet: {self.nome}\nEspécie: {self.especie}\nIdade: {self.idade}\nNome do dono: {self.nome_do_dono}\nPeso; {self.peso}\nEstatus de hospedagem: {"está hospedado" if self.hospedado else "não hospedado"}\nSituação de vacina: {self.verificar_vacinacao()}\nValor da diaria: R${self.calcular_diaria()}."
         print(msg)
     
 pet1 = Pet("Rex","Cachoro",5,"(+55) 9 2738-0019",15,"nenhuma obseservação","s","Edinaldo Machado pereira")
