@@ -20,7 +20,7 @@ class Pet:
         self.hospedado = False
     
     def exibir_dados(self):
-        print("\n---Dados do Pet ---")
+        print(f"\n---Dados do {self.nome} ---")
         print(f"Nome: {self.nome}")
         print(f"Espécie: {self.especie}")
         print(f"Idade: {self.idade}")
@@ -62,11 +62,20 @@ pet1 = Pet("Rex","Cachoro",5,"(+55) 9 2738-0019",15,"nenhuma obseservação","s"
 
 pet1.exibir_dados()
 pet1.registrar_entrada()
-pet1.exibir_dados()
 pet1.emitir_resumo()
 
 
+pet2 = Pet("banguela","dragão",30,"(+55) 9 2231-2378",200,"cospe fogo quando sente ameaçado","n","Soluço Spantosicus Strondus III")
+
+pet2.exibir_dados()
+pet2.registrar_entrada()
+pet2.emitir_resumo()
 
 
+pet3 = Pet("Zeus","Gato",7,"(+55) 42 9931-2908",16,"Ama carinho na lombar e erva de gato","s","Artemiz Reis")
+
+pet3.exibir_dados()
+pet3.registrar_entrada()
+pet3.emitir_resumo()
 
 #def __init__(self, nome, especie,idade,telefone_dono,peso,observacoes,vacinado,nome_do_dono):
