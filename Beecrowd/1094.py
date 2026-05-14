@@ -1,6 +1,6 @@
 '''
 data inivial: 05.05.2026
-data final:
+data final: 12.05.2026
 '''
 
 coelhos = 0
@@ -25,6 +25,6 @@ print(f"Total: {total_testes} cobaias")
 print(f"Total de coelhos: {coelhos}")
 print(f"Total de ratos: {ratos}")
 print(f"Total de sapos: {sapos}")
-print(f"Percentual de coelhos: {(coelhos*100)/total_testes:.2}")
-print(f"Percentual de ratos: {(ratos*100)/total_testes:.2}")
-print(f"Percentual de sapos: {(sapos*100)/total_testes:.2}")
+print(f"Percentual de coelhos: {((coelhos*100)/total_testes):.2f} %")
+print(f"Percentual de ratos: {((ratos*100)/total_testes):.2f} %")
+print(f"Percentual de sapos: {((sapos*100)/total_testes):.2f} %")

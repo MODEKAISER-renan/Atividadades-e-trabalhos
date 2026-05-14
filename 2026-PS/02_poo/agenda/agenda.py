@@ -52,7 +52,7 @@ def salvar_em_binario(contatos,caminho):
 
 def carregar_de_binario(caminho):
     try:
-        with open(caminho,"rb") as arquivo:
+        with open(caminho, "rb") as arquivo:
             return pickle.load(arquivo)
     except FileNotFoundError:
         print(f"Arquivos {caminho} ainda não existe. Começando vazio")

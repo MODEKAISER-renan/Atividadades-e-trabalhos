@@ -8,12 +8,19 @@ Atividade: Classe Pet
 '''
 
 class Pet:
-    def __init__(self, nome, especie,idade,telefone_dono,peso,observacoes,vacinado,nome_do_dono):
+    def __init__(self, nome, especie,idade,peso,observacoes,vacinado,):
         self.nome = nome
         self.especie = especie
         self.idade = idade
-        self.nome_do_dono = nome_do_dono
-        self.telefone_dono = telefone_dono
+        self.peso = peso
+        self.vacinado = vacinado
+        self.observacoes = observacoes
+        self.hospedado = False
+    
+    def Cadrastro(self, nome, especie,idade,peso,observacoes,vacinado,):
+        self.nome = nome
+        self.especie = especie
+        self.idade = idade
         self.peso = peso
         self.vacinado = vacinado
         self.observacoes = observacoes
@@ -27,10 +34,11 @@ class Pet:
         print(f"Peso: {self.peso}")
         print(f"Vacinação: {'Sim' if self.vacinado == 's' else 'Não'}")
         print(f"Observações: {self.observacoes}")
-        print(f"Telefone do dono: {self.telefone_dono}")
         print(f"Hospedado: {'Sim' if self.hospedado else 'Não'}")
     
     def registrar_entrada(self):
+        print("Deseja fazer:\n[1] check-in\n[2] check-out")
+        input("Digite sua")
         if self.hospedado == True:
             print("O pet já está no hotel")
         else:
@@ -55,27 +63,27 @@ class Pet:
         self.peso = novo_peso
     
     def emitir_resumo(self):
-        msg = f"\nNome do pet: {self.nome}\nEspécie: {self.especie}\nIdade: {self.idade}\nNome do dono: {self.nome_do_dono}\nPeso; {self.peso}\nEstatus de hospedagem: {"está hospedado" if self.hospedado else "não hospedado"}\nSituação de vacina: {self.verificar_vacinacao()}\nValor da diaria: R${self.calcular_diaria()}."
+        msg = f"\nNome do pet: {self.nome}\nEspécie: {self.especie}\nIdade: {self.idade}\nPeso; {self.peso}\nEstatus de hospedagem: {"está hospedado" if self.hospedado else "não hospedado"}\nSituação de vacina: {self.verificar_vacinacao()}\nValor da diaria: R${self.calcular_diaria()}."
         print(msg)
     
-pet1 = Pet("Rex","Cachoro",5,"(+55) 9 2738-0019",15,"nenhuma obseservação","s","Edinaldo Machado pereira")
+# pet1 = Pet("Rex","Cachoro",5,"(+55) 9 2738-0019",15,"nenhuma obseservação","s","Edinaldo Machado pereira")
 
-pet1.exibir_dados()
-pet1.registrar_entrada()
-pet1.emitir_resumo()
-
-
-pet2 = Pet("banguela","dragão",30,"(+55) 9 2231-2378",200,"cospe fogo quando sente ameaçado","n","Soluço Spantosicus Strondus III")
-
-pet2.exibir_dados()
-pet2.registrar_entrada()
-pet2.emitir_resumo()
+# pet1.exibir_dados()
+# pet1.registrar_entrada()
+# pet1.emitir_resumo()
 
 
-pet3 = Pet("Zeus","Gato",7,"(+55) 42 9931-2908",16,"Ama carinho na lombar e erva de gato","s","Artemiz Reis")
+# pet2 = Pet("banguela","dragão",30,"(+55) 9 2231-2378",200,"cospe fogo quando sente ameaçado","n","Soluço Spantosicus Strondus III")
 
-pet3.exibir_dados()
-pet3.registrar_entrada()
-pet3.emitir_resumo()
+# pet2.exibir_dados()
+# pet2.registrar_entrada()
+# pet2.emitir_resumo()
+
+
+# pet3 = Pet("Zeus","Gato",7,"(+55) 42 9931-2908",16,"Ama carinho na lombar e erva de gato","s","Artemiz Reis")
+
+# pet3.exibir_dados()
+# pet3.registrar_entrada()
+# pet3.emitir_resumo()
 
 #def __init__(self, nome, especie,idade,telefone_dono,peso,observacoes,vacinado,nome_do_dono):
