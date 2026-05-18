@@ -7,6 +7,24 @@ conceitos : classe, objeto, atributos, métodos, encapsulamento
 Atividade: Classe Pet
 '''
 
+import random
+from Funcoes_do_hotel import *
+
+class Dono:
+     def __init__(self):
+          print("\n=== Cadastro do Dono ===\n")
+          self.Nome_Dono = input("Digite Nome do dono: ")
+          self.Numero_Dono = verificacao("numerica","Digite seu numero:")
+          self.Gmail_Dono = verificacao("contem?","Digite seu Email: ","@","Email invalido, digite novamente")
+          print("Cadastro realizado com sucesso.")
+    
+     def Exibir(self):
+          msg =f"\nNome do dono: {self.Nome_Dono}\nNumero do dono: {self.Numero_Dono}\nEmail do dono: {self.Gmail_Dono}\n"
+          return msg
+
+     def linha_txt():
+          pass
+
 class Pet:
     def __init__(self):
         # if Cadastro_True != True:
