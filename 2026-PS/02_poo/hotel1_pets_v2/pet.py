@@ -8,23 +8,24 @@ Atividade: Classe Pet
 '''
 
 class Pet:
-    def __init__(self, nome, especie,idade,peso,observacoes,vacinado,):
-        self.nome = nome
-        self.especie = especie
-        self.idade = idade
-        self.peso = peso
-        self.vacinado = vacinado
-        self.observacoes = observacoes
-        self.hospedado = False
-    
-    def Cadrastro(self, nome, especie,idade,peso,observacoes,vacinado,):
-        self.nome = nome
-        self.especie = especie
-        self.idade = idade
-        self.peso = peso
-        self.vacinado = vacinado
-        self.observacoes = observacoes
-        self.hospedado = False
+    def __init__(self):
+        # if Cadastro_True != True:
+        #     self.nome = nome
+        #     self.especie = especie
+        #     self.idade = idade
+        #     self.peso = peso
+        #     self.vacinado = vacinado
+        #     self.observacoes = observacoes
+        #     self.hospedado = False
+        # else:
+            self.nome = input("Digite o nome do pet: ")
+            self.especie = input("Digite a especie: ")
+            self.idade = int(input("Digite a idade: "))
+            self.peso = float(input("Digite o peso: "))
+            self.vacinado = input("É vacinado?[s/n]: ")
+            self.observacoes = input("Digite se há alguma observação sobre o pet: ")
+            self.hospedado = False
+
     
     def exibir_dados(self):
         print(f"\n---Dados do {self.nome} ---")
@@ -38,12 +39,19 @@ class Pet:
     
     def registrar_entrada(self):
         print("Deseja fazer:\n[1] check-in\n[2] check-out")
-        input("Digite sua")
-        if self.hospedado == True:
-            print("O pet já está no hotel")
+        escolha = input("Digite sua escolha: ")
+        if escolha == "1":
+            if self.hospedado == True:
+                print("O pet já está no hotel")
+            else:
+                self.hospedado = True
+                print(f"{self.nome} está ospedado")
         else:
-            self.hospedado = True
-            print(f"{self.nome} entrou no hotel")
+            if self.hospedado == False:
+                print("O pet ainda não está ospedado para fazer check-out")
+            else:
+                self.hospedado = False
+                print(f"{self.nome} pet fez check-out")
     
     def calcular_diaria(self):
         if self.idade <= 3:
@@ -65,13 +73,13 @@ class Pet:
     def emitir_resumo(self):
         msg = f"\nNome do pet: {self.nome}\nEspécie: {self.especie}\nIdade: {self.idade}\nPeso; {self.peso}\nEstatus de hospedagem: {"está hospedado" if self.hospedado else "não hospedado"}\nSituação de vacina: {self.verificar_vacinacao()}\nValor da diaria: R${self.calcular_diaria()}."
         print(msg)
+
     
-# pet1 = Pet("Rex","Cachoro",5,"(+55) 9 2738-0019",15,"nenhuma obseservação","s","Edinaldo Machado pereira")
+# pet1 = Pet("Rex","Cachoro",5,15,"nenhuma obseservação","s")
 
 # pet1.exibir_dados()
 # pet1.registrar_entrada()
 # pet1.emitir_resumo()
-
 
 # pet2 = Pet("banguela","dragão",30,"(+55) 9 2231-2378",200,"cospe fogo quando sente ameaçado","n","Soluço Spantosicus Strondus III")
 
