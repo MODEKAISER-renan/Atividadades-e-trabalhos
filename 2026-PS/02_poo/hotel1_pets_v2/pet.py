@@ -18,6 +18,7 @@ class Pet:
         #     self.observacoes = observacoes
         #     self.hospedado = False
         # else:
+            print("\n=== Cadastro Do Pet ===\n")
             self.nome = input("Digite o nome do pet: ")
             self.especie = input("Digite a especie: ")
             self.idade = int(input("Digite a idade: "))

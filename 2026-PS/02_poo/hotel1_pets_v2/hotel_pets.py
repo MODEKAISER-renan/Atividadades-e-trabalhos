@@ -12,7 +12,7 @@ lista_de_donos = []
 
 class Dono:
      def __init__(self):
-          print("Cadastro do Dono")
+          print("\n=== Cadastro do Dono ===\n")
           self.Nome_Dono = input("Digite Nome do dono: ")
           self.Numero_Dono = verificacao("numerica","Digite seu numero:")
           self.Gmail_Dono = verificacao("contem?","Digite seu Email: ","@","Email invalido, digite novamente")
@@ -47,9 +47,12 @@ class Dono:
 #     return contatos
 
 def salvar_em_binario(contatos,URL):
-    with open(URL, "wb") as arquivo:
-        pickle.dump(contatos,arquivo)
-    print(f"* {len(contatos)} contatos(s) salvos(s) em {URL}")
+     try:
+          with open(URL, "wb") as arquivo:
+               pickle.dump(contatos,arquivo)
+          print(f"* {len(contatos)} contatos(s) salvos(s) em {URL}")
+     except Exception as e:
+         print(f"Erro inesperado {e} , arquivo não pode ser salvo")
 
 def carregar_de_binario(URL):
     try:
@@ -78,8 +81,11 @@ def verificacao(funcao,pergunta_principal,auxiliar = "", mgs_auxiliar = ""):
                          print(mgs_auxiliar)
 
 def menu():
-     lista_de_pets = carregar_de_binario("Lista_de_Pets.bin")
-     lista_de_donos = carregar_de_binario("Lista_de_Donos.bin")
+     URl_Donos = "2026-PS/02_poo/hotel1_pets_v2/Lista_de_Donos.bin"
+     URL_Pets = "2026-PS/02_poo/hotel1_pets_v2/Lista_de_Pets.bin"
+     lista_de_pets = carregar_de_binario(URL_Pets)
+     lista_de_donos = carregar_de_binario(URl_Donos)
+
      while True:
           msg = "\n[1] Cadastar\n[2] listar\n[3] salvar em txt\n[4] salvar em binario\n[5] Check-in/check-out\n[6] atualizar dados do pet\n[7] exlcuir pet\n[8] Buscar pet\n[9] Pets hospedados\n[10] Resumo individual\n[0] Sair\n"
           print(msg)
@@ -88,6 +94,8 @@ def menu():
           print("\n")
 
           if resposta == 0:
+               salvar_em_binario(lista_de_donos,URl_Donos)
+               salvar_em_binario(lista_de_pets,URL_Pets)
                break
           elif resposta == 1:
                usuario = Dono()
@@ -95,14 +103,19 @@ def menu():
                lista_de_donos.append(usuario)
                lista_de_pets.append(pet)
           elif resposta == 2:
+               print("\n=== Lsita de donos ===\n")
                for dono in lista_de_donos:
                     print(dono.Exibir())
+               print("\n=== Lista de Pets ===\n")
+               for pet in lista_de_pets:
+                    print(pet.exibir_dados())
           elif resposta == 3:
                pass
           elif resposta == 4:
-               pass
+               salvar_em_binario(lista_de_donos,URl_Donos)
+               salvar_em_binario(lista_de_pets,URL_Pets)
           elif resposta == 5:
-               pass
+               print("Digite o nome do pet que deseja fazer check-in: ")
           elif resposta == 6:
                pass
           elif resposta == 7:
