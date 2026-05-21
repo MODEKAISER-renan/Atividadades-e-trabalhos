@@ -11,39 +11,33 @@ import random
 from Funcoes_do_hotel import *
 
 class Dono:
-     def __init__(self):
-          print("\n=== Cadastro do Dono ===\n")
-          self.Nome_Dono = input("Digite Nome do dono: ")
-          self.Numero_Dono = verificacao("numerica","Digite seu numero:")
-          self.Gmail_Dono = verificacao("contem?","Digite seu Email: ","@","Email invalido, digite novamente")
-          print("Cadastro realizado com sucesso.")
+    def __init__(self):
+        print("\n=== Cadastro do Dono ===\n")
+        self.Nome_Dono = input("Digite Nome do dono: ")
+        self.Numero_Dono = verificacao("numerica","Digite seu numero:")
+        self.Gmail_Dono = verificacao("contem?","Digite seu Email: ","@","Email invalido, digite novamente")
+        print("Cadastro realizado com sucesso.")
+        ID = random.randint(1,10)
+        print(ID)
     
-     def Exibir(self):
-          msg =f"\nNome do dono: {self.Nome_Dono}\nNumero do dono: {self.Numero_Dono}\nEmail do dono: {self.Gmail_Dono}\n"
-          return msg
+    
+    def Exibir(self):
+        msg =f"\nNome do dono: {self.Nome_Dono}\nNumero do dono: {self.Numero_Dono}\nEmail do dono: {self.Gmail_Dono}\n"
+        return msg
 
-     def linha_txt():
-          pass
+    def linha_txt():
+        pass
 
 class Pet:
     def __init__(self):
-        # if Cadastro_True != True:
-        #     self.nome = nome
-        #     self.especie = especie
-        #     self.idade = idade
-        #     self.peso = peso
-        #     self.vacinado = vacinado
-        #     self.observacoes = observacoes
-        #     self.hospedado = False
-        # else:
-            print("\n=== Cadastro Do Pet ===\n")
-            self.nome = input("Digite o nome do pet: ")
-            self.especie = input("Digite a especie: ")
-            self.idade = int(input("Digite a idade: "))
-            self.peso = float(input("Digite o peso: "))
-            self.vacinado = input("É vacinado?[s/n]: ")
-            self.observacoes = input("Digite se há alguma observação sobre o pet: ")
-            self.hospedado = False
+        print("\n=== Cadastro Do Pet ===\n")
+        self.nome = input("Digite o nome do pet: ")
+        self.especie = input("Digite a especie: ")
+        self.idade = int(input("Digite a idade: "))
+        self.peso = float(input("Digite o peso: "))
+        self.vacinado = input("É vacinado?[s/n]: ")
+        self.observacoes = input("Digite se há alguma observação sobre o pet: ")
+        self.hospedado = False
 
     
     def exibir_dados(self):
@@ -70,7 +64,7 @@ class Pet:
                 print("O pet ainda não está ospedado para fazer check-out")
             else:
                 self.hospedado = False
-                print(f"{self.nome} pet fez check-out")
+                print(f"{self.nome} fez check-out")
     
     def calcular_diaria(self):
         if self.idade <= 3:

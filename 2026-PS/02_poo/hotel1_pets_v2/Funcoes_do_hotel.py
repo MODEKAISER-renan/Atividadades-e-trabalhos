@@ -5,10 +5,6 @@ Obejetivo: Criar um menu para o objeto pets, com objetivo principal do menu de m
 '''
 
 import pickle
-from Menu_Hotel import menu
-
-URl_Donos = "2026-PS/02_poo/hotel1_pets_v2/Lista_de_Donos.bin"
-URL_Pets = "2026-PS/02_poo/hotel1_pets_v2/Lista_de_Pets.bin"
 
 # def salvar_em_txt(, caminho):
 #     with open(caminho,"w", encoding="utf-8") as arquivo:
@@ -44,6 +40,7 @@ def carregar_de_binario(URL):
         with open(URL, "rb") as arquivo:
             Lista = pickle.load(arquivo)
             print(Lista)
+            return Lista
     except FileNotFoundError:
         print(f"Arquivos {URL} ainda não existe. Começando vazio")
         return []
