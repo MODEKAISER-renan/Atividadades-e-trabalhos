@@ -8,6 +8,8 @@ lista_de_donos = []
 def menu():
      URl_Donos = "2026-PS/02_poo/hotel1_pets_v2/Lista_de_Donos.bin"
      URL_Pets = "2026-PS/02_poo/hotel1_pets_v2/Lista_de_Pets.bin"
+     URl_Donos_json = "2026-PS/02_poo/hotel1_pets_v2/donos.json"
+     URL_Pets_json = "2026-PS/02_poo/hotel1_pets_v2/pets.json"
      lista_de_pets = carregar_de_binario(URL_Pets)
      lista_de_donos = carregar_de_binario(URl_Donos)
 
@@ -35,7 +37,8 @@ def menu():
                for pet in lista_de_pets:
                     print(pet.exibir_dados())
           elif resposta == 3:
-               pass
+               salvar_em_json(lista_de_pets,URL_Pets_json)
+               salvar_em_json(lista_de_donos,URl_Donos_json)
           elif resposta == 4:
                salvar_em_binario(lista_de_donos,URl_Donos)
                salvar_em_binario(lista_de_pets,URL_Pets)
@@ -49,7 +52,7 @@ def menu():
                          print("Nome invalido.")
           elif resposta == 6:
                print("Qual pet deseja alterar os atributos:")
-               nome = input("Digite o nome do pet aqui")
+               nome = input("Digite o nome do pet aqui: ")
                busca_erro = True
                for pet in lista_de_pets:
                     if nome in pet.nome:

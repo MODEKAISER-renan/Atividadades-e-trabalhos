@@ -25,8 +25,30 @@ class Dono:
         msg =f"\nNome do dono: {self.Nome_Dono}\nNumero do dono: {self.Numero_Dono}\nEmail do dono: {self.Gmail_Dono}\n"
         return msg
 
-    def linha_txt():
-        pass
+    def para_dicionario(self):
+        """
+        Transforma o objeto Pet em um dicionário.
+
+        Isso é necessário porque o JSON não salva diretamente objetos Python.
+        Ele salva dados simples: textos, números, booleanos, listas e dicionários.
+        """
+        return {
+            "nome": self.Nome_Dono,
+            "numero": self.Numero_Dono,
+            "email": self.Gmail_Dono,
+        }
+
+    @staticmethod
+    def criar_de_dicionario(dados):
+        """
+        Cria um objeto Pet a partir de um dicionário carregado do JSON.
+        """
+        return Pet(
+            dados["nome"],
+            dados["numero"],
+            dados["email"],
+        )
+
 
 class Pet:
     def __init__(self):
@@ -49,6 +71,39 @@ class Pet:
         print(f"Vacinação: {'Sim' if self.vacinado == 's' else 'Não'}")
         print(f"Observações: {self.observacoes}")
         print(f"Hospedado: {'Sim' if self.hospedado else 'Não'}")
+
+    def para_dicionario(self):
+        """
+        Transforma o objeto Pet em um dicionário.
+
+        Isso é necessário porque o JSON não salva diretamente objetos Python.
+        Ele salva dados simples: textos, números, booleanos, listas e dicionários.
+        """
+        return {
+            "nome": self.nome,
+            "especie": self.especie,
+            "idade": self.idade,
+            "peso": self.peso,
+            "vacinado": self.vacinado,
+            "observacoes":self.observacoes,
+            "hospedado": self.hospedado
+        }
+
+    @staticmethod
+    def criar_de_dicionario(dados):
+        """
+        Cria um objeto Pet a partir de um dicionário carregado do JSON.
+        """
+        return Pet(
+            dados["nome"],
+            dados["especie"],
+            dados["idade"],
+            dados["peso"],
+            dados["vacinado"],
+            dados["hospedado"],
+            dados["observacoes"]
+        )
+
     
     def registrar_entrada(self):
         print("Deseja fazer:\n[1] check-in\n[2] check-out")
@@ -86,25 +141,3 @@ class Pet:
     def emitir_resumo(self):
         msg = f"\nNome do pet: {self.nome}\nEspécie: {self.especie}\nIdade: {self.idade}\nPeso; {self.peso}\nEstatus de hospedagem: {"está hospedado" if self.hospedado else "não hospedado"}\nSituação de vacina: {self.verificar_vacinacao()}\nValor da diaria: R${self.calcular_diaria()}."
         print(msg)
-
-    
-# pet1 = Pet("Rex","Cachoro",5,15,"nenhuma obseservação","s")
-
-# pet1.exibir_dados()
-# pet1.registrar_entrada()
-# pet1.emitir_resumo()
-
-# pet2 = Pet("banguela","dragão",30,"(+55) 9 2231-2378",200,"cospe fogo quando sente ameaçado","n","Soluço Spantosicus Strondus III")
-
-# pet2.exibir_dados()
-# pet2.registrar_entrada()
-# pet2.emitir_resumo()
-
-
-# pet3 = Pet("Zeus","Gato",7,"(+55) 42 9931-2908",16,"Ama carinho na lombar e erva de gato","s","Artemiz Reis")
-
-# pet3.exibir_dados()
-# pet3.registrar_entrada()
-# pet3.emitir_resumo()
-
-#def __init__(self, nome, especie,idade,telefone_dono,peso,observacoes,vacinado,nome_do_dono):

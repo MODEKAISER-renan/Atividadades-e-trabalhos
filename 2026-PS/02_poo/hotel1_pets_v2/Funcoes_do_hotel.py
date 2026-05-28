@@ -5,27 +5,45 @@ Obejetivo: Criar um menu para o objeto pets, com objetivo principal do menu de m
 '''
 
 import pickle
+import json
+import os
+from Objetos import *
 
-# def salvar_em_txt(, caminho):
-#     with open(caminho,"w", encoding="utf-8") as arquivo:
-#         for c in contatos:
-#             arquivo.write(c.para_linha_txt()+"\n")
-#     print(f"* {len(contatos)} contatos(s) salvos(s) em {caminho}")
+def salvar_em_json(lista_pets,URL):
+    """
+    Salva a lista de objetos Pet no arquivo pets.json.
+    """
 
-# def carregar_de_txt(caminho):
-#     contatos = []
-#     try:
-#         with open(caminho,"r",encoding="utf-8") as arquivo:
-#             for linha in arquivo:
-#                 linha = linha.strip()
-#                 if not linha:
-#                     continue
-#                 partes = linha.strip(";")
-#                 nome,telefone,email = partes[0],partes[1],partes[2]
-#                 contatos.append(Contato(nome,telefone,email))
-#     except FileExistsError:
-#         print(f"Arquivo {caminho} ainda não existe. Começando vazio.")
-#     return contatos
+    lista_dicionarios = []
+
+    for pet in lista_pets:
+        lista_dicionarios.append(pet.para_dicionario())
+
+    with open(URL, "w", encoding="utf-8") as arquivo:
+        json.dump(lista_dicionarios, arquivo, ensure_ascii=False, indent=4)
+
+    print(f"Dados salvos com sucesso em {URL}")
+
+def carregar_pets(URL):
+    """
+    Carrega os pets do arquivo pets.json.
+
+    Se o arquivo ainda não existir, retorna uma lista vazia.
+    """
+
+    if not os.path.exists(URL):
+        return []
+
+    with open(URL, "r", encoding="utf-8") as arquivo:
+        lista_dicionarios = json.load(arquivo)
+
+    lista_pets = []
+
+    for dados in lista_dicionarios:
+        pet = Pet.criar_de_dicionario(dados)
+        lista_pets.append(pet)
+
+    return lista_pets
 
 def salvar_em_binario(contatos,URL):
      try:
