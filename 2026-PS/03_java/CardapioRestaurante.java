@@ -7,50 +7,64 @@ public class CardapioRestaurante {
         Scanner entrada = new Scanner(System.in);
         double valor = 0.0;
         int quantidade = 0;
-        String produto = "";
+
+        String[] produtos = {
+            "X-Burguer",
+            "Pizza",
+            "Suco Natural",
+            "Café",
+            "Caldo de Kenga"
+        };
+
+        Double[] preco_produto = {
+            18.00,
+            35.00,
+            8.00,
+            5.00,
+            15.00
+        };
+
 
         System.out.println("=================================");
         System.out.println("     CARDÁPIO ELETRÔNICO");
         System.out.println("=================================");
-        System.out.println("1 - X-Burguer .......... R$ 18,00");
-        System.out.println("2 - Pizza .............. R$ 35,00");
-        System.out.println("3 - Suco Natural ....... R$ 8,00");
-        System.out.println("4 - Café ............... R$ 5,00");
-        System.out.println("5 - Caldo de kenga...... R$ 15,00");
+        for(int i = 1; i < produtos.length; i ++){
+            System.out.println((i+1) + " -- " + produtos[i] + " R$ " + preco_produto[i]);
+        }
         System.out.println("=================================");
-        System.out.println("     Restaurante do Renan.");
+        System.out.println("      Restaurante do Renan.");
         System.out.println("=================================");
-
-        System.out.print("Escolha uma opção: ");
-        int opcao = entrada.nextInt();
-
-        if (opcao == 1) {
-            System.out.println("Você escolheu X-Burguer.");
-            valor = 18.00;
-            produto = "X-Burguer";
-        } else if (opcao == 2) {
-            System.out.println("Você escolheu Pizza.");
-            valor = 35.00;
-            produto = "Pizza";
-        } else if (opcao == 3) {
-            System.out.println("Você escolheu Suco Natural.");
-            valor = 8.00;
-            produto = "Suco Natural";
-        } else if (opcao == 4) {
-            System.out.println("Você escolheu Café.");
-            valor = 5.00;
-            produto = "Café";
-        } else if(opcao==4){
-            System.out.println("Você escolheu caldo de kenga");
-            valor = 8.00;
-            produto = "caldo de kenga";
-        } else {
-            System.out.println("Opção inválida.");
+    
+        while(true)
+        {
+            System.out.print("Escolha uma opção: ");
+            int opcao = entrada.nextInt();
+            switch(opcao){
+            case 1: 
+                System.out.println("Você escolheu " + produtos[opcao-1]);
+                valor = preco_produto[opcao-1];
+            case 2: 
+                System.out.println("Você escolheu " + produtos[opcao-1]);
+                valor = preco_produto[opcao-1];
+            case 3: 
+                System.out.println("Você escolheu " + produtos[opcao-1]);
+                valor = preco_produto[opcao-1];
+            case 4: 
+                System.out.println("Você escolheu " + produtos[opcao-1]);
+                valor = preco_produto[opcao-1];
+            case 5: 
+                System.out.println("Você escolheu " + produtos[opcao-1]);
+                valor = preco_produto[opcao-1];
+            default: 
+                System.out.println("Opção inválida.");
+            }
+            System.out.print("Quantos você vai querer?: ");
+            quantidade = entrada.nextInt();
+            System.out.println("Deseja continuar comprando? [1]sim / [2]não");
+            if (entrada.nextInt() == 1) {continue;} else {break;}
         }
 
-        System.out.print("Quantos você vai querer?: ");
-        quantidade = entrada.nextInt();
-        System.out.print("Você pediu " + quantidade +" " + produto +" o preço total è R$ " + (quantidade*valor) + " ");
+        System.out.print("Você pediu " + quantidade +" " +" o preço total è R$ " + (quantidade*valor) + " ");
 
 
         entrada.close();
