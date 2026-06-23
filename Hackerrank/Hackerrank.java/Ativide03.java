@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Ativide_03 {
+public class Ativide03 {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
