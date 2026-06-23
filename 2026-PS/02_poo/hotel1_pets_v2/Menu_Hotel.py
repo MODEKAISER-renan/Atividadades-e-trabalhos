@@ -1,6 +1,5 @@
 
 from Funcoes_do_hotel import *
-from Objetos import *
 
 lista_de_pets = []
 lista_de_donos = []
