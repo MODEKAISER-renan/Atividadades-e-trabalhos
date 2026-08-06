@@ -46,5 +46,6 @@ public class AtividadeModulos{
         somar(2.5,3.5);
         cardapio("Refrigerante");
         cardapio("Pizza",39.90);
+        System.exit(0);
     }
 }
