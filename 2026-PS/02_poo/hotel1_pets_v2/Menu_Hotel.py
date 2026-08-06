@@ -9,8 +9,10 @@ def menu():
      URL_Pets = "2026-PS/02_poo/hotel1_pets_v2/Lista_de_Pets.bin"
      URl_Donos_json = "2026-PS/02_poo/hotel1_pets_v2/donos.json"
      URL_Pets_json = "2026-PS/02_poo/hotel1_pets_v2/pets.json"
-     lista_de_pets = carregar_de_binario(URL_Pets)
-     lista_de_donos = carregar_de_binario(URl_Donos)
+     lista_de_donos = carregar_Donos(URl_Donos_json)
+     lista_de_pets = carregar_pets(URL_Pets_json)
+     # lista_de_pets = carregar_de_binario(URL_Pets)
+     # lista_de_donos = carregar_de_binario(URl_Donos)
 
      while True:
           msg = "\n[1] Cadastar\n[2] listar\n[3] salvar em txt\n[4] salvar em binario\n[5] Check-in/check-out\n[6] atualizar dados do pet\n[7] exlcuir usuario\n[8] Buscar pet\n[9] Pets hospedados\n[10] Resumo individual\n[0] Sair\n"

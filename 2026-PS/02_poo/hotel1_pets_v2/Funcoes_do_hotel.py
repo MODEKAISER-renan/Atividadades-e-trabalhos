@@ -44,6 +44,22 @@ def carregar_pets(URL):
 
     return lista_pets
 
+def carregar_Donos(URL):
+
+    if not os.path.exists(URL):
+        return []
+
+    with open(URL, "r", encoding="utf-8") as arquivo:
+        lista_dicionarios = json.load(arquivo)
+
+    lista_donos = []
+
+    for dados in lista_dicionarios:
+        pet = Dono.criar_de_dicionario(dados)
+        lista_donos.append(pet)
+
+    return lista_donos
+
 def salvar_em_binario(contatos,URL):
      try:
           with open(URL, "wb") as arquivo:
@@ -122,14 +138,13 @@ class Dono:
 
     @staticmethod
     def criar_de_dicionario(dados):
-        """
-        Cria um objeto Pet a partir de um dicionário carregado do JSON.
-        """
-        return Pet(
-            dados["nome"],
-            dados["numero"],
-            dados["email"],
-        )
+        dono = Dono.__new__(Dono)
+
+        dono.Nome_Dono = dados["nome"]
+        dono.Numero_Dono = dados["numero"]
+        dono.Gmail_Dono = dados["email"]
+
+        return dono
 
 
 class Pet:
@@ -173,18 +188,17 @@ class Pet:
 
     @staticmethod
     def criar_de_dicionario(dados):
-        """
-        Cria um objeto Pet a partir de um dicionário carregado do JSON.
-        """
-        return Pet(
-            dados["nome"],
-            dados["especie"],
-            dados["idade"],
-            dados["peso"],
-            dados["vacinado"],
-            dados["hospedado"],
-            dados["observacoes"]
-        )
+        pet = Pet.__new__(Pet)
+
+        pet.nome = dados["nome"]
+        pet.especie = dados["especie"]
+        pet.idade = dados["idade"]
+        pet.peso = dados["peso"]
+        pet.vacinado = dados["vacinado"]
+        pet.observacoes = dados["observacoes"]
+        pet.hospedado = dados["hospedado"]
+
+        return pet
 
     
     def registrar_entrada(self):
@@ -223,3 +237,5 @@ class Pet:
     def emitir_resumo(self):
         msg = f"\nNome do pet: {self.nome}\nEspécie: {self.especie}\nIdade: {self.idade}\nPeso; {self.peso}\nEstatus de hospedagem: {"está hospedado" if self.hospedado else "não hospedado"}\nSituação de vacina: {self.verificar_vacinacao()}\nValor da diaria: R${self.calcular_diaria()}."
         print(msg)
+
+
