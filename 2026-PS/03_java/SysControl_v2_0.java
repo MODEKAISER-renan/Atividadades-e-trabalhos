@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 
-public class SysControl_v2_0 {
-
-    public class Chamados{
+class Chamados{
 
         private Double numero;
         private String descricao;
@@ -30,16 +28,24 @@ public class SysControl_v2_0 {
         public String getDescricao(){ return descricao;}
         public int getPrioridade(){ return prioridade;}
     }
-    static void Listar_Chamadas(ArrayList Chamadas){
-        for(int i = 0;i>Chamadas.size();i++){
-            System.out.println();
+    
+
+public class SysControl_v2_0 {
+
+    static void Listar_Chamadas(ArrayList<Chamados> Chamadas){
+        for(Chamados objeto : Chamadas){
+            System.out.println("|Número do chamado: " + objeto.getNumero() + "\n|Descrição:" + objeto.getDescricao() + "\n|Prioridade do chamado: " + objeto.getPrioridade());
 
             }
     }
 
-
     public static void main(String[] args){
-        ArrayList<String> Lista_de_Chamadas = new ArrayList<>();
+        
+        ArrayList<Chamados> Lista_de_Chamadas = new ArrayList<>();
+
+        Lista_de_Chamadas.add(new Chamados(1.0,"ta pegando fogo bicho", 10));
+
+        Listar_Chamadas(Lista_de_Chamadas);
 
 
         System.exit(0);
