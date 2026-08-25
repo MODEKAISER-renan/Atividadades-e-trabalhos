@@ -23,5 +23,6 @@ public class Aluno{
 
     public void setNome(String nome){this.nome = nome;}
     public void setCurso(String curso){this.curso = curso;}
+    public void setMatricula(String matricula){this.matricula = matricula;}
     
 }
