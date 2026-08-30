@@ -11,6 +11,18 @@ import java.util.Scanner;
 
 public class Main{
 
+    static void Relatorio(ArrayList<Aluno> lista, Scanner input){
+        System.out.println("Contar alunos de qual curso?");
+        String pesquisa = input.nextLine().trim();
+        int contador = 0;
+        for(Aluno aluno : lista){
+            if(aluno.getCurso().equals(pesquisa)){
+                contador ++;
+            }
+        }
+        System.out.println("Existem " + contador + " alunos cadastrados nesse curso e ao todo há " + lista.size() + " alunos.");
+    }
+
     static void Delet(Aluno aluno,Scanner input,ArrayList<Aluno> lista){
         if(aluno == null){
             System.out.println("Aluno não encontrado, opreção invalida!");
@@ -35,7 +47,7 @@ public class Main{
             System.out.println("Aluno não encontrado, encerrando operação!");
         }
         else{       
-            System.out.println("Qual atributo desse alterar?\n[1] Nome\n[2] Matricula\n[3] Curso");
+            System.out.println("Qual atributo desse alterar?\n[1] Nome\n[2] Matricula\n[3] Curso\n[4] Telefone");
             String escolha = input.nextLine().trim();
             if(escolha.equals("1")){
                 System.out.print("Digite o novo nome:");
@@ -54,22 +66,46 @@ public class Main{
                 aluno.setCurso(novo_Curso);
                 System.out.println("Curso alterado com sucesso!!!");
             }
-            else{
+            else if(escolha.equals("4")){
+            System.out.print("Digite o novo telefone:");
+            String novo_Telefone = input.nextLine().trim();
+            aluno.setTelefone(novo_Telefone);
+            System.out.println("Telefone alterado com sucesso!!!");
+            }else{
                 System.out.println("Opção invalida, voltando ao menu.");
             }
         }
     }
 
     static Aluno Busca(ArrayList<Aluno> lista, Scanner input){
-        System.out.println("Busca por qual matricula? ");
-        String matricula_busca = input.nextLine().trim();
-        for(Aluno aluno : lista){
-            if(matricula_busca.equals(aluno.getMatricula())){
-                return aluno;
+        System.out.println("Buscar por nome ou por matricula? [1]Nome [2]Matricula");
+        String escolha = input.nextLine().trim();
+        if(escolha.equals("2")){
+            System.out.println("Busca por qual matricula? ");
+            String matricula_busca = input.nextLine().trim();
+            for(Aluno aluno : lista){
+                if(matricula_busca.equals(aluno.getMatricula())){
+                    return aluno;
+                }
             }
+            System.out.println("Matricula não encontrada!!!");
+            return null;
+        }else if(escolha.equals("1")){
+            System.out.println("Busca por qual Nome? ");
+            String nome_busca = input.nextLine().trim();
+            for(Aluno aluno : lista){
+                if(nome_busca.equals(aluno.getNome())){
+                    return aluno;
+                }
+            }
+            System.out.println("Nome não encontrado!!!");
+            return null;
         }
-        System.out.println("Matricula não encontrada!!!");
-        return null;
+        else{
+            System.out.println("Opção invalida!");
+            return null;
+        }
+
     }
 
     static String Validacao_Matricula(ArrayList<Aluno> lista,Scanner input){
@@ -81,9 +117,6 @@ public class Main{
                 if(matricula.equals(numero.getMatricula())){
                     matricula_correta = false;
                     break;
-                }
-                else{
-                    matricula_correta = true;
                 }
             }
             if(matricula_correta == true){
@@ -105,9 +138,12 @@ public class Main{
         System.out.print("Curso ");
         String curso = input.nextLine().trim();
 
+        System.out.print("Telefone: ");
+        String telefone = input.nextLine().trim();
+
         String matricula = Validacao_Matricula(lista, input);
             
-        Aluno novo = new Aluno(nome,matricula,curso);
+        Aluno novo = new Aluno(nome,matricula,curso,telefone);
         lista.add(novo);
 
     }
@@ -115,7 +151,7 @@ public class Main{
     
     static void Listar(ArrayList<Aluno> lista){
         for(Aluno aluno : lista){
-            System.out.printf("\nNome: " + aluno.getNome() + "\nMatricula: " + aluno.getMatricula() + "\nCurso: " + aluno.getCurso() + "\n");
+            System.out.println(aluno);
         }
     }
     static void Listar(Aluno aluno){
@@ -123,7 +159,7 @@ public class Main{
             return;
         }
         else{
-        System.out.printf("\nNome: " + aluno.getNome() + "\nMatricula: " + aluno.getMatricula() + "\nCurso: " + aluno.getCurso() + "\n");
+        System.out.println(aluno);
         }
     }
 
@@ -140,6 +176,7 @@ public class Main{
             System.out.println("[3] Buscar Aluno");
             System.out.println("[4] Atualizar dados do Aluno");
             System.out.println("[5] Excluir Aluno");
+            System.out.println("[6] Relatorio");
             System.out.println("[0] Sair");
             System.out.print("Sua escolha: ");
             String opcao = input.nextLine().trim();
@@ -150,9 +187,8 @@ public class Main{
             else if(opcao.equals("3")){Listar(Busca(lista,input));}
             else if(opcao.equals("4")){Atualizar(Busca(lista, input),input,lista);}
             else if(opcao.equals("5")){Delet(Busca(lista, input),input,lista);}
-            else{System.out.println("Opção invalida!");}
+            else if(opcao.equals("6")){Relatorio(lista,input);}
+            else{System.out.println("Opção invalida! as opções são apenas 1, 2, 3, 4, 5 e 6 !!!");}
         }
     }
-
-
 }
