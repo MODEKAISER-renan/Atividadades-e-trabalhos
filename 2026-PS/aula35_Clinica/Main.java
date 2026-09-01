@@ -42,9 +42,9 @@ public class Main {
 
                 for (Produto p : produtos) {
                     System.out.println(
-                        p.codigo + " - " +
-                        p.nome + " - R$ " +
-                        p.preco
+                        p.getCodigo() + " - " +
+                        p.getNome() + " - R$ " +
+                        p.getPreco()
                     );
                 }
 
@@ -55,12 +55,12 @@ public class Main {
 
                 for (Produto p : produtos) {
 
-                    if (p.codigo == codigo) {
+                    if (p.getCodigo() == codigo) {
 
                         System.out.print("Novo preço: ");
                         double preco = teclado.nextDouble();
 
-                        p.preco = preco;
+                        p.setPreco(preco);
                     }
                 }
 
@@ -71,7 +71,7 @@ public class Main {
 
                 for (Produto p : produtos) {
 
-                    if (p.codigo == codigo) {
+                    if (p.getCodigo() == codigo) {
                         produtos.remove(p);
                     }
                 }
