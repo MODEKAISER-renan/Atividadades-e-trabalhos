@@ -6,8 +6,17 @@ public class Main {
     static Scanner teclado = new Scanner(System.in);
     static ArrayList<Produto> produtos = new ArrayList<>();
 
-    public static void main(String[] args) {
+    static Produto Busca(int codigo,ArrayList<Produto> lista,Integer verificacao){
+        for(Produto produto : lista){
+            if(verificacao.equals(produto.getCodigo())){
+                return produto;
+            }
+        }
+        return null;
+    }
 
+    public static void main(String[] args) {
+        ArrayList<Produto> lista = new ArrayList<Produto>();
         int opcao = 0;
 
         while (opcao != 5) {
