@@ -35,6 +35,15 @@ public class Main {
             System.out.println("Preço atualizado para " + preco + " com sucesso!");
         }
     }
+    static void AlterarPreco(double preco, Produto p,Double desconto){
+        if(p == null){
+            System.out.println("Código do produto incorreto!");
+            return;
+        }else{
+            p.setPreco(preco - preco/(desconto/100)); //pesquisar como colocar um valor com limitação de casas.
+            System.out.println("Preço atualizado para " + preco + " com desconto de" + desconto + "%!.");
+        }
+    }
 
     static void Excluir(Produto p,ArrayList<Produto> lista){
         if(p == null){
@@ -67,13 +76,20 @@ public class Main {
                 System.out.print("Digite o código do produto:");
                 int codigo = teclado.nextInt();
 
-                System.out.print("Digite o nome do produto:");
-                String nome = teclado.nextLine();
+                if(Busca(lista, codigo) == null){
+                    System.out.println("Código valido");
 
-                System.out.print("Digite o preço do produto:");
-                double preco = teclado.nextDouble();
+                    System.out.print("Digite o nome do produto:");
+                    String nome = teclado.nextLine(); // a ver, erro
 
-                Cadastrar(codigo,nome,preco,lista);
+                    System.out.print("Digite o preço do produto:");
+                    double preco = teclado.nextDouble();
+
+                    Cadastrar(codigo,nome,preco,lista);
+
+                } else {
+                    System.out.println("Código invalido");
+                }
 
             } else if (opcao == 2) {
                 Listar(lista);
@@ -85,8 +101,17 @@ public class Main {
                 System.out.print("Digite o novo preço:");
                 double preco = teclado.nextDouble();
 
-                AlterarPreco(preco, Busca(lista, verificacao));
-                
+                System.out.print("Tem desconto [1]Sim / [2]Não ? ");
+                String resposta = teclado.nextLine().trim(); // erro
+
+                if(resposta.equals("1")){
+                    System.out.print("Qual o desconto em %?");
+                    double desconto = teclado.nextDouble();
+
+                    AlterarPreco(preco, Busca(lista, verificacao),desconto);
+                } else {
+                    AlterarPreco(preco, Busca(lista, verificacao));
+                }
             } else if (opcao == 4) {
                 System.out.print("Digite o código do produto que deseja excluir:");
                 Integer verificacao = teclado.nextInt();
