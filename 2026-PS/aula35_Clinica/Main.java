@@ -6,13 +6,44 @@ public class Main {
     static Scanner teclado = new Scanner(System.in);
     static ArrayList<Produto> produtos = new ArrayList<>();
 
-    static Produto Busca(int codigo,ArrayList<Produto> lista,Integer verificacao){
+    static Produto Busca(ArrayList<Produto> lista,Integer verificacao){
         for(Produto produto : lista){
             if(verificacao.equals(produto.getCodigo())){
                 return produto;
             }
         }
         return null;
+    }
+
+    static void Cadastrar(int codigo,String nome , double preco,ArrayList<Produto> lista){
+        Produto p = new Produto(codigo, nome, preco);
+        lista.add(p);
+    }
+
+    static void Listar(ArrayList<Produto> lista){
+        for (Produto p : lista) {
+            System.out.println(p);
+        }
+    }
+
+    static void AlterarPreco(double preco, Produto p){
+        if(p == null){
+            System.out.println("Código do produto incorreto!");
+            return;
+        }else{
+            p.setPreco(preco);
+            System.out.println("Preço atualizado para " + preco + " com sucesso!");
+        }
+    }
+
+    static void Excluir(Produto p,ArrayList<Produto> lista){
+        if(p == null){
+            System.out.println("Código do produto incorreto!");
+            return;
+        }else{
+            lista.remove(p);
+            System.out.println("Produto " + p + " excluido com sucesso com sucesso!");
+        }
     }
 
     public static void main(String[] args) {
@@ -33,57 +64,33 @@ public class Main {
             teclado.nextLine();
 
             if (opcao == 1) {
-
-                System.out.print("Código: ");
+                System.out.print("Digite o código do produto:");
                 int codigo = teclado.nextInt();
-                teclado.nextLine();
 
-                System.out.print("Nome: ");
+                System.out.print("Digite o nome do produto:");
                 String nome = teclado.nextLine();
 
-                System.out.print("Preço: ");
+                System.out.print("Digite o preço do produto:");
                 double preco = teclado.nextDouble();
 
-                Produto p = new Produto(codigo, nome, preco);
-                produtos.add(p);
+                Cadastrar(codigo,nome,preco,lista);
 
             } else if (opcao == 2) {
-
-                for (Produto p : produtos) {
-                    System.out.println(
-                        p.getCodigo() + " - " +
-                        p.getNome() + " - R$ " +
-                        p.getPreco()
-                    );
-                }
+                Listar(lista);
 
             } else if (opcao == 3) {
+                System.out.print("Digite o código do produto que deseja alterar o preço:");
+                Integer verificacao = teclado.nextInt();
 
-                System.out.print("Código: ");
-                int codigo = teclado.nextInt();
+                System.out.print("Digite o novo preço:");
+                double preco = teclado.nextDouble();
 
-                for (Produto p : produtos) {
-
-                    if (p.getCodigo() == codigo) {
-
-                        System.out.print("Novo preço: ");
-                        double preco = teclado.nextDouble();
-
-                        p.setPreco(preco);
-                    }
-                }
-
+                AlterarPreco(preco, Busca(lista, verificacao));
+                
             } else if (opcao == 4) {
-
-                System.out.print("Código: ");
-                int codigo = teclado.nextInt();
-
-                for (Produto p : produtos) {
-
-                    if (p.getCodigo() == codigo) {
-                        produtos.remove(p);
-                    }
-                }
+                System.out.print("Digite o código do produto que deseja excluir:");
+                Integer verificacao = teclado.nextInt();
+                Excluir(Busca(lista, verificacao), lista);
             }
         }
 

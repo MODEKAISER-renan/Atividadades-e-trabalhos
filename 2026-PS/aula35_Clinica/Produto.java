@@ -20,4 +20,7 @@ public class Produto {
     public void alterarPreco(double preco) {
         this.preco = preco;
     }
+    public String toString(){
+        return codigo + " - " + nome + " - R$ " + preco;
+    }
 }
